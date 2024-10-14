@@ -15,21 +15,36 @@ from utils.general_utils import PILtoTorch
 from utils.graphics_utils import fov2focal
 
 WARNED = False
-
+WARNED2 = False
 def loadCam(args, id, cam_info, resolution_scale):
     orig_w, orig_h = cam_info.image.size
 
-    if args.resolution in [1, 2, 4, 8]:
+    if args.resolution in [1, 2, 3, 4, 8]:
         resolution = round(orig_w/(resolution_scale * args.resolution)), round(orig_h/(resolution_scale * args.resolution))
+        
+        """
+        if resolution[0] < 256 and resolution[0] < resolution[1]:
+            resolution = (256, round(resolution[1]/resolution[0]*256))
+        elif resolution[1] < 256:
+            resolution = (round(resolution[0]/resolution[1]*256), 256)
+        """
+
     else:  # should be a type that converts to float
         if args.resolution == -1:
-            if orig_w > 1600:
+            if orig_w > 1280 and orig_w > orig_h:
                 global WARNED
                 if not WARNED:
-                    print("[ INFO ] Encountered quite large input images (>1.6K pixels width), rescaling to 1.6K.\n "
+                    print("[ INFO ] Encountered quite large input images (>1.2K pixels width), rescaling to 1280.\n "
                         "If this is not desired, please explicitly specify '--resolution/-r' as 1")
                     WARNED = True
-                global_down = orig_w / 1600
+                global_down = orig_w / 1280
+            elif orig_h > 1280:
+                global WARNED2
+                if not WARNED2:
+                    print("[ INFO ] Encountered quite large input images (>1.2K pixels height), rescaling to 1280.\n "
+                        "If this is not desired, please explicitly specify '--resolution/-r' as 1")
+                    WARNED2 = True
+                global_down = orig_h / 1280
             else:
                 global_down = 1
         else:
