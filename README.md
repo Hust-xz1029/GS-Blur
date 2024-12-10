@@ -1,5 +1,5 @@
 # GS-Blur [NeurIPS 2024 Datasets and Benchmark Track]
-This is official implementation of [GS-Blur: A 3D Scene-Based Dataset for Realistic Image Deblurring] () (NeurIPS 2024).
+This is official implementation of [GS-Blur: A 3D Scene-Based Dataset for Realistic Image Deblurring](https://arxiv.org/abs/2410.23658) (NeurIPS 2024).
 
 ## Quickstart
 
