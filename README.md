@@ -3,7 +3,6 @@ This is official implementation of [GS-Blur: A 3D Scene-Based Dataset for Realis
 
 Download Link: [[Google Drive](https://drive.google.com/drive/folders/1ZksD7bPl3_ezDLoeHJ2Duwo_LQG1TXB1?usp=drive_link)]
 
-WIP: Currently, we have only uploaded the miniset (=2000 images), but we will upload the full set as soon as we decide on an appropriate online storage solution.
 ## Quickstart
 
 ### Local Setup
