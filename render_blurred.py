@@ -237,7 +237,7 @@ if __name__ == "__main__":
     parser.add_argument("--skip_test", action="store_true")
     parser.add_argument("--quiet", action="store_true")
     parser.add_argument("--blur", action="store_true")
-    parser.add_argument("--repeats", default=5, type=int)
+    parser.add_argument("--repeats", default=1, type=int)
     parser.add_argument("--ksize", default=121, type=int)
     parser.add_argument("--scale", default=0.5, type=float)
     parser.add_argument("--d_theta", default=0.003, type=float)
